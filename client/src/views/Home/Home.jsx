@@ -6,6 +6,8 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import Filter from "../../components/Filter/Filter";
 
 const Home = () => {
+  
+
   const dispatch = useDispatch();
 
   useEffect(() => {

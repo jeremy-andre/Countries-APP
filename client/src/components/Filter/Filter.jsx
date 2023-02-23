@@ -2,8 +2,9 @@ import { setContinentFilter } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const Filter = () => {
+  
+  const continentFilter = useSelector((state)=>state.continentFilter) 
     const dispatch = useDispatch()
-    const continentFilter = useSelector((state)=>state.continentFilter) 
 
     const handleContinentChange = (event) => {
         dispatch(setContinentFilter(event.target.value))

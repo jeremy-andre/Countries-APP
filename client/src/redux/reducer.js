@@ -3,12 +3,14 @@ import {
   GET_COUNTRY,
   SEARCH_COUNTRIES,
   SET_CONTINENT_FILTER,
+  FAILURE,
 } from "./actionsTypes";
 
 const initialState = {
   countries: [],
   country: [],
-  continentFilter: "",
+  continentFilter: '',
+  error: null,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -21,6 +23,8 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, countries: action.payload };
     case SET_CONTINENT_FILTER:
       return { ...state, continentFilter: action.payload };
+    case FAILURE:
+      return { ...state, countries:[], error: action.error}
     default:
       return { ...state };
   }

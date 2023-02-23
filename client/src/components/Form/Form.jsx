@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const Form = () => {
+  
   const [form, setForm] = useState({
     name: "",
     dificulty: "",
@@ -31,7 +32,7 @@ const Form = () => {
 
   const submitHandler = (event) => {
     event.preventDefault()
-    axios.post('http://localhost:3001/activities', form).then(res=>alert(res))
+    axios.post('http://localhost:3001/activities', form).then(res=>alert)
   }
 
   return (
