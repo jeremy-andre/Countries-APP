@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff; /* color de fondo de la caja */
+  border: 1px solid #dedede; /* borde de la caja */
+  border-radius: 5px; /* esquinas redondeadas de la caja */
+  padding: 20px; /* espacio interior de la caja */
+  box-shadow: 2px 2px 5px #ccc; /* sombra de la caja */
+  max-width: 300px; /* ancho máximo de la caja */
+  margin: 20px;
+  text-align: center; /* alinea el contenido al centro de la caja */
+}
+
+.containerImage {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #cccccc;
+  margin-bottom: 1px;
+}
+
+.containerName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.containerCont {
+  font-size: 18px;
+  font-weight: normal;
+}
