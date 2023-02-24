@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { filterCountries } from "../../Utilities/filterCountries";
+
 
 const Pagination = () => {
   // const totalElements = filterCountries({

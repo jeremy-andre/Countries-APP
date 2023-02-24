@@ -1,6 +1,5 @@
-export function filterCountries(props) {
+const filterCountries = (props) => {
   const { countries, continentFilter, orderFilter, populationFilter } = props;
-
   //--aplicar_filtro_por_continent------------
   let filteredCountries = countries.filter((country) => {
     if (continentFilter === "") {
@@ -31,5 +30,9 @@ export function filterCountries(props) {
     default:
       break;
   }
+
+  //console.log(filteredCountries);
   return filteredCountries;
-}
+};
+
+export default filterCountries;

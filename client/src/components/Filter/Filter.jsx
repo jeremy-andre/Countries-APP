@@ -2,39 +2,35 @@ import {
   setContinentFilter,
   setOrderFilter,
   setPopulationFilter,
-  countriesFilter,
-  getCountries,
 } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
-import { filterCountries } from "../../Utilities/filterCountries";
-import { useEffect } from "react";
+
 
 const Filter = () => {
   const continentFilter = useSelector((state) => state.continentFilter);
   const orderFilter = useSelector((state) => state.orderFilter);
   const populationFilter = useSelector((state) => state.populationFilter);
-  const countries = useSelector((state) => state.countries);
 
   const dispatch = useDispatch();
 
   //--EL_QUE_FILTRA_LOS_COUNTRIES_CON_EL_UTILITY-----------------------
-  const countriesFiltered = filterCountries({
+
+ /* const total = FilterCountries({
     countries,
     continentFilter,
     orderFilter,
     populationFilter,
-  });
-  
-    dispatch(countriesFilter(countriesFiltered))
-   console.log(countriesFiltered.length);
-  
+  });*/
+
+  //console.log(total);
+  // dispatch(countriesFilter(countriesFiltered))
+  // console.log(countriesFiltered.length);
 
   //console.log(countriesFiltered);
 
   //AQUI_HACER_UN_SWITCH-----------------------------------------------
   const handleFilterChange = (event) => {
-    
     if (event.target.name === "continent") {
       dispatch(setContinentFilter(event.target.value));
     }
@@ -49,7 +45,6 @@ const Filter = () => {
   return (
     <div>
       <SearchBar />
-
       <div>
         <label>CONTINENT: </label>
         <select
