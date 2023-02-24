@@ -4,6 +4,11 @@ import {
   GET_COUNTRY,
   SEARCH_COUNTRIES,
   SET_CONTINENT_FILTER,
+  SET_ORDER_FILTER,
+  SET_POPULATION_FILTER,
+  SET_CURRENT_PAGE,
+  SET_TOTAL_PAGES,
+  COUNTRIES_FILTERED,
 } from "./actionsTypes";
 import axios from "axios";
 //---------------------------------------
@@ -43,9 +48,29 @@ export const getCountry = (id) => {
   };
 };
 
+//--FILTERS--------------------------------------------------
 export const setContinentFilter = (continent) => {
   return { type: SET_CONTINENT_FILTER, payload: continent };
 };
 
+export const setOrderFilter = (order) => {
+  return { type: SET_ORDER_FILTER, payload: order };
+};
 
+export const setPopulationFilter = (population) => {
+  return { type: SET_POPULATION_FILTER, payload: population };
+};
 
+//------------------------------------------------------------
+
+export const countriesFilter = (countriesFilter) => {
+  return { type: COUNTRIES_FILTERED, payload: countriesFilter };
+};
+
+export const setCurrentPage = (currentPage) => {
+  return { type: SET_CURRENT_PAGE, payload: currentPage };
+};
+
+export const setTotalPages = (totalPages) => {
+  return { type: SET_TOTAL_PAGES, payload: totalPages };
+};
