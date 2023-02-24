@@ -63,7 +63,7 @@ export const setPopulationFilter = (population) => {
 
 //------------------------------------------------------------
 
-export const countriesFilter = (countriesFilter) => {
+export const setcountriesFilter = (countriesFilter) => {
   return { type: COUNTRIES_FILTERED, payload: countriesFilter };
 };
 
