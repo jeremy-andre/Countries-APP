@@ -12,14 +12,21 @@ import {
 } from "./actionsTypes";
 
 const initialState = {
+  Allcountries: [],
   countries: [],
-  countriesFilter: [],
+
   country: [],
+
   continentFilter: "",
   orderFilter: "",
   populationFilter: "",
-  currentPage: 1,
-  totalPages: 0,
+  
+  loadingCountries: false,
+  loadingCountriesFilter: false,
+
+  indexOfFirstElement: 0,
+  indexOfLastElement: 10,
+
   error: null,
 };
 
@@ -28,8 +35,8 @@ const rootReducer = (state = initialState, action) => {
     case GET_COUNTRIES:
       return {
         ...state,
-        countries: action.payload,
-        countriesFilter: action.payload,
+        Allcountries: action.payload,
+        loadingCountries: true,
       };
     case GET_COUNTRY:
       return { ...state, country: action.payload };
@@ -42,11 +49,15 @@ const rootReducer = (state = initialState, action) => {
     case SET_POPULATION_FILTER:
       return { ...state, populationFilter: action.payload, orderFilter: "" };
     case SET_CURRENT_PAGE:
-      return { ...state, currentPage: action.payload };
+      return { ...state, indexOfFirstElement: action.payload };
     case SET_TOTAL_PAGES:
-      return { ...state, totalPages: action.payload };
+      return { ...state, indexOfLastElement: action.payload };
     case COUNTRIES_FILTERED:
-      return { ...state, countriesFilter: action.payload };
+      return {
+        ...state,
+        countries: action.payload,
+        loadingCountriesFilter: true,
+      };
     case FAILURE:
       return { ...state, countries: [], error: action.error };
     default:

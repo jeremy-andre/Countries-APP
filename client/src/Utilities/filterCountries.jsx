@@ -1,13 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setcountriesFilter } from "../redux/actions";
-
-const FilterCountries = () => {
-  const continentFilter = useSelector((state) => state.continentFilter);
-  const orderFilter = useSelector((state) => state.orderFilter);
-  const populationFilter = useSelector((state) => state.populationFilter);
-  const countries = useSelector((state) => state.countries);
-
-  //const { countries, continentFilter, orderFilter, populationFilter } = props;
+const FilterCountries = (props) => {
+  const { countries, continentFilter, orderFilter, populationFilter } = props;
   //--aplicar_filtro_por_continent------------
   let filteredCountries = countries.filter((country) => {
     if (continentFilter === "") {
@@ -39,11 +31,8 @@ const FilterCountries = () => {
     default:
       break;
   }
-  filteredCountries()
-  console.log(filteredCountries);
-  const dispatch = useDispatch();
-  dispatch(setcountriesFilter(filteredCountries));
-  return null;
+//console.log(filteredCountries);
+  return filteredCountries;
 };
 
 export default FilterCountries;

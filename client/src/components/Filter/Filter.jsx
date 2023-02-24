@@ -6,28 +6,12 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
 
-
 const Filter = () => {
   const continentFilter = useSelector((state) => state.continentFilter);
   const orderFilter = useSelector((state) => state.orderFilter);
   const populationFilter = useSelector((state) => state.populationFilter);
 
   const dispatch = useDispatch();
-
-  //--EL_QUE_FILTRA_LOS_COUNTRIES_CON_EL_UTILITY-----------------------
-
- /* const total = FilterCountries({
-    countries,
-    continentFilter,
-    orderFilter,
-    populationFilter,
-  });*/
-
-  //console.log(total);
-  // dispatch(countriesFilter(countriesFiltered))
-  // console.log(countriesFiltered.length);
-
-  //console.log(countriesFiltered);
 
   //AQUI_HACER_UN_SWITCH-----------------------------------------------
   const handleFilterChange = (event) => {

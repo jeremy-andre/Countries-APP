@@ -1,47 +1,48 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import CardsContainer from "../CardsContainer/CardsContainer";
 
-const Pagination = () => {
-  // const totalElements = filterCountries({
-  //  countries,
-  //  continentFilter,
-  //  orderFilter,
-  //  populationFilter,
-  // }).length;
-
-  //console.log(totalElements)
-
-  const totalElements = 250;
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+const Pagination = ({ countriesFiltered }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [elementsPerPage, setElementsPerPage] = useState(10);
 
-  // console.log(currentPage)
+  // Calcula el número total de páginas sabiendo que ingresan 10 en cada pagina----------
+  const totalPages = Math.ceil(countriesFiltered.length / 10);
 
-  const indexOfLastElement = currentPage * elementsPerPage; // 1 * 10
-  const indexOfFirstElement = indexOfLastElement - elementsPerPage; // 10 - 10
+  // Calcula el índice de inicio y final de los países de la página actual
+  const start = (currentPage - 1) * 10;
+  const end = start + 10;
 
-  const pageNumbers = [];
+  // Obtiene los países de la página actual
+  const currentCountries = countriesFiltered.slice(start, end);
 
-  for (let i = 1; i <= Math.ceil(totalElements / elementsPerPage); i++) {
-    //250 / 10 = 25 veces de paginas
-    pageNumbers.push(i);
-  }
+  //console.log(currentCountries);
 
-  //console.log(pageNumbers);
+  // Cambia a la página anterior
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // Cambia a la página siguiente
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  console.log(currentCountries);
 
   return (
-    <nav>
-      <ul>
-        {pageNumbers.map((number) => (
-          <div key={number}>
-            <button onClick={() => paginate(number)}>{number}</button>
-          </div>
-        ))}
-      </ul>
-    </nav>
+    <>
+      {/* Renderiza los botones de navegación de página */}
+      <button onClick={prevPage}>Prev</button>
+      <button onClick={nextPage}>Next</button>
+      <CardsContainer countriesFiltered={currentCountries} />
+      {/* Pasa los países de la página actual a otro componente que los renderiza */}
+    </>
   );
 };
 
