@@ -12,18 +12,19 @@ import {
 } from "./actionsTypes";
 
 const initialState = {
+  // TODO
   Allcountries: [],
   countries: [],
-
+  //ID
   country: [],
-
+  //FILTROS
   continentFilter: "",
   orderFilter: "",
   populationFilter: "",
-  
+  //CARGADORES
   loadingCountries: false,
   loadingCountriesFilter: false,
-
+//PAGINADO
   indexOfFirstElement: 0,
   indexOfLastElement: 10,
 

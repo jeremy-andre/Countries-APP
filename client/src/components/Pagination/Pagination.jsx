@@ -5,6 +5,7 @@ import CardsContainer from "../CardsContainer/CardsContainer";
 
 const Pagination = ({ countriesFiltered }) => {
 
+ // console.log(countriesFiltered);
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calcula el número total de páginas sabiendo que ingresan 10 en cada pagina----------
@@ -33,7 +34,7 @@ const Pagination = ({ countriesFiltered }) => {
     }
   };
 
-  console.log(currentCountries);
+  //console.log(currentCountries);
 
   return (
     <>
