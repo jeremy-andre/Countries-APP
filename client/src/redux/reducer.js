@@ -15,16 +15,16 @@ const initialState = {
   // TODO
   Allcountries: [],
   countries: [],
-  //ID
+  //  ID
   country: [],
-  //FILTROS
+  //  FILTROS
   continentFilter: "",
   orderFilter: "",
   populationFilter: "",
-  //CARGADORES
+  //  CARGADORES
   loadingCountries: false,
   loadingCountriesFilter: false,
-//PAGINADO
+  //  PAGINADO
   indexOfFirstElement: 0,
   indexOfLastElement: 10,
 
@@ -42,7 +42,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_COUNTRY:
       return { ...state, country: action.payload };
     case SEARCH_COUNTRIES:
-      return { ...state, countriesFilter: action.payload };
+      return { ...state, Allcountries: action.payload };
     case SET_CONTINENT_FILTER:
       return { ...state, continentFilter: action.payload };
     case SET_ORDER_FILTER:

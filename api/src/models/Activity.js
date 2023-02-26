@@ -2,16 +2,16 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (Sequelize) => {
   Sequelize.define("activity", {
-    /*id: {
+    id: {
       type: DataTypes.UUID,
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
-    },*/
-
+    },
+    
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      //unique: true,
+      unique: true
     },
 
     difficulty: {
@@ -20,12 +20,16 @@ module.exports = (Sequelize) => {
     },
 
     duracion: {
-      type: DataTypes.TIME,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        min: 1,
+        max: 24,
+      },
     },
 
     temporada: {
-      type: DataTypes.ENUM("spring", "summer", "fall", "winter"),
+      type: DataTypes.ENUM("Spring", "Summer", "Fall", "Winter"),
       allowNull: false,
     },
   });

@@ -20,6 +20,7 @@ const FilterCountries = (props) => {
     default:
       break;
   }
+
   //--aplicar_filtro_por_population-----------
   switch (populationFilter) {
     case "Ascendente":
@@ -31,6 +32,7 @@ const FilterCountries = (props) => {
     default:
       break;
   }
+
 //console.log(filteredCountries);
   return filteredCountries;
 };

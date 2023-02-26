@@ -4,11 +4,12 @@ import { searchCountries } from "../../redux/actions";
 
 const CountrySearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
+
   const dispatch = useDispatch();
 
   const handleSearch = () => {
-    dispatch(searchCountries(searchTerm));
     setSearchTerm(searchTerm);
+    dispatch(searchCountries(searchTerm));
   };
 
   return (

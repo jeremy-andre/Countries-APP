@@ -5,13 +5,25 @@ import {
 } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
+import { useState } from "react";
 
 const Filter = () => {
   const continentFilter = useSelector((state) => state.continentFilter);
   const orderFilter = useSelector((state) => state.orderFilter);
   const populationFilter = useSelector((state) => state.populationFilter);
 
+
+/*
+  const[continent , setContinent ] = useState('')
+  const handleFilterChange = (event) => {
+    if (event.target.name === "continent") {
+      setContinent(event.target.value);
+  };
+*/
+
+
   const dispatch = useDispatch();
+
 
   //AQUI_HACER_UN_SWITCH-----------------------------------------------
   const handleFilterChange = (event) => {
@@ -25,6 +37,8 @@ const Filter = () => {
       dispatch(setPopulationFilter(event.target.value));
     }
   };
+
+  
 
   return (
     <div>

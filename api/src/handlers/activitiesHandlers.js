@@ -19,7 +19,7 @@ const getActivitiesHandler = async (req, res) => {
 const createActivitieHandler = async (req, res) => {
   try {
     const { idPais, name, difficulty, duracion, temporada } = req.body;
-    if (!name || !difficulty || !temporada) throw Error("Data_missing");
+    if (!idPais || !name || !difficulty || !temporada) throw Error("Data_missing");
     else {
       const newActivity = await createActivity(
         idPais,
