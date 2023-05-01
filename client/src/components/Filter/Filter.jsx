@@ -2,49 +2,68 @@ import {
   setContinentFilter,
   setOrderFilter,
   setPopulationFilter,
+  setActivitySelect,
+  searchCountries,
+  setSearchTerm,
 } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
-import SearchBar from "../SearchBar/SearchBar";
-import { useState } from "react";
+// import SearchBar from "../SearchBar/SearchBar";
+import styles from "../Filter/Filter.module.css";
 
 const Filter = () => {
   const continentFilter = useSelector((state) => state.continentFilter);
   const orderFilter = useSelector((state) => state.orderFilter);
   const populationFilter = useSelector((state) => state.populationFilter);
-
-
-/*
-  const[continent , setContinent ] = useState('')
-  const handleFilterChange = (event) => {
-    if (event.target.name === "continent") {
-      setContinent(event.target.value);
-  };
-*/
-
+  const activitesSelect = useSelector((state) => state.activity);
+  const activities = useSelector((state) => state.activities);
+  const searchTerm = useSelector((state) => state.searchTerm);
 
   const dispatch = useDispatch();
 
-
   //AQUI_HACER_UN_SWITCH-----------------------------------------------
   const handleFilterChange = (event) => {
-    if (event.target.name === "continent") {
-      dispatch(setContinentFilter(event.target.value));
+    const { name, value } = event.target;
+    if (name === "search") {
+      dispatch(setSearchTerm(value));
+      dispatch(searchCountries(value));
     }
-    if (event.target.name === "order") {
-      dispatch(setOrderFilter(event.target.value));
+    if (name === "continent") {
+      dispatch(setContinentFilter(value));
     }
-    if (event.target.name === "population") {
-      dispatch(setPopulationFilter(event.target.value));
+    if (name === "order") {
+      dispatch(setOrderFilter(value));
+    }
+    if (name === "population") {
+      dispatch(setPopulationFilter(value));
+    }
+    if (name === "activity") {
+      dispatch(setActivitySelect(value));
+    }
+    if (name === "clear") {
+      dispatch(setContinentFilter(""));
+      dispatch(setOrderFilter(""));
+      dispatch(setPopulationFilter(""));
+      dispatch(setActivitySelect(""));
+      dispatch(setSearchTerm(""));
+      dispatch(searchCountries(""));
     }
   };
 
-  
-
   return (
-    <div>
-      <SearchBar />
+    <div className={styles.container}>
+      <div className={styles.searchBar}>
+        <input
+          className={styles.input}
+          type="text"
+          value={searchTerm}
+          onChange={handleFilterChange}
+          placeholder="Search countries ..."
+          name="search"
+        />
+      </div>
+      {/* <SearchBar /> */}
       <div>
-        <label>CONTINENT: </label>
+        <label className={styles.label}>CONTINENT: </label>
         <select
           value={continentFilter}
           onChange={handleFilterChange}
@@ -56,9 +75,9 @@ const Filter = () => {
           <option value="Asia">Asia</option>
           <option value="Europe">Europe</option>
           <option value="Oceania">Oceania</option>
+          <option value="Antarctica">Antarctica</option>
         </select>
       </div>
-
       <div>
         <label>ORDER: </label>
         <select value={orderFilter} onChange={handleFilterChange} name="order">
@@ -67,7 +86,6 @@ const Filter = () => {
           <option value="Z-A">Z-A</option>
         </select>
       </div>
-
       <div>
         <label>POPULATION: </label>
         <select
@@ -80,10 +98,28 @@ const Filter = () => {
           <option value="Descendente">Descendente</option>
         </select>
       </div>
-
       <div>
-        <label>Activities: </label>
+        <label>ACTIVITIES: </label>
+        <select
+          value={activitesSelect}
+          onChange={handleFilterChange}
+          name="activity"
+        >
+          <option value="">None</option>
+          {activities.map((a) => (
+            <option key={a.id} value={a.name}>
+              {a.name}
+            </option>
+          ))}
+        </select>
       </div>
+      <button
+        className={styles.button}
+        onClick={handleFilterChange}
+        name="clear"
+      >
+        CLEAR FILTERS
+      </button>
     </div>
   );
 };

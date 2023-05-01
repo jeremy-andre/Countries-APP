@@ -1,8 +1,10 @@
-export const nameError = (name) => {
+export const nameError = (name, nameActivities) => {
   return !name.trim()
     ? "El nombre no puede estar vacío"
     : !/^[a-zA-Z\s]+$/.test(name)
     ? "El nombre solo puede contener letras y espacios"
+    : nameActivities.includes(name)
+    ? `La actividad con el nombre de ${name} ya a sido creada, por favor ingresa otro nombre`
     : "";
 };
 
@@ -24,4 +26,14 @@ export const durationError = (duracion) => {
     : isNaN(duracion) || duracion < 1 || duracion > 24
     ? "La duración debe ser un numero entre 1 y 24"
     : "";
+};
+
+export const countriesError = (idPais) => {
+  return idPais.length === 0
+    ? "Debes agregar por lo menos un Pais para esta actividad"
+    : "";
+};
+
+export const seasonError = (season) => {
+  return !season ? "La temporada es obligatoria" : "";
 };

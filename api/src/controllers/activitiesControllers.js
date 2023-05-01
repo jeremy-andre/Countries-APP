@@ -13,12 +13,16 @@ const createActivity = async (
     duracion,
     temporada,
   });
-  // Busca el Pais mediante el body idPais para colocar la actividad created
-  const pushCountry = await Country.findOne({
-    where: { id: idPais },
-  });
-  // Mete la actividad creada al Pais
-  await activityCreated.addCountry(pushCountry);
+
+  await Promise.all(
+    idPais.map(async (id) => {
+      // Busca el Pais mediante el body idPais para colocar la actividad created
+      const country = await Country.findByPk(id);
+      // Mete la actividad creada al Pais
+      await activityCreated.addCountry(country);
+    })
+  );
+
   return activityCreated;
 };
 

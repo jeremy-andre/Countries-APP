@@ -19,16 +19,16 @@ const getActivitiesHandler = async (req, res) => {
 const createActivitieHandler = async (req, res) => {
   try {
     const { idPais, name, difficulty, duracion, temporada } = req.body;
-    if (!idPais || !name || !difficulty || !temporada) throw Error("Data_missing");
+    if (!idPais || !name || !difficulty || !temporada)
+      throw Error("Data_missing");
     else {
-      const newActivity = await createActivity(
-        idPais,
-        name,
-        difficulty,
-        duracion,
-        temporada
-      );
-      res.status(200).json(newActivity);
+      if (name && difficulty && duracion && temporada && idPais.length > 0) {
+        // const promises =
+        await createActivity(idPais, name, difficulty, duracion, temporada);
+        // await Promise.all(promises)
+
+        res.status(200).json("ACTIVIDAD CREADA");
+      }
     }
   } catch (error) {
     res.status(400).json({ error: error.message });

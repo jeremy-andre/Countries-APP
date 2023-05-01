@@ -1,14 +1,14 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff; /* color de fondo de la caja */
-  border: 1px solid #dedede; /* borde de la caja */
-  border-radius: 5px; /* esquinas redondeadas de la caja */
-  padding: 20px; /* espacio interior de la caja */
-  box-shadow: 2px 2px 5px #ccc; /* sombra de la caja */
-  max-width: 300px; /* ancho máximo de la caja */
+  background-color: #ffffff;
+  border: 1px solid #dedede; 
+  border-radius: 5px; 
+  padding: 20px; 
+  box-shadow: 2px 2px 5px #a4a3a3; 
+  max-width: 300px; 
   margin: 20px;
-  text-align: center; /* alinea el contenido al centro de la caja */
+  text-align: center; 
 }
 
 .containerImage {
@@ -23,6 +23,10 @@
 .containerName {
   font-size: 24px;
   font-weight: bold;
+  border: 1px solid #c0c0c0; 
+  border-radius: 5px;
+  padding: 10px;
+
 }
 
 .containerCont {

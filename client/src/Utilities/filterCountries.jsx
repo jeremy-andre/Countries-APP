@@ -1,5 +1,12 @@
-const FilterCountries = (props) => {
-  const { countries, continentFilter, orderFilter, populationFilter } = props;
+export const FilterCountries = (props) => {
+  const {
+    countries,
+    continentFilter,
+    orderFilter,
+    populationFilter,
+    activityFilter,
+  } = props;
+
   //--aplicar_filtro_por_continent------------
   let filteredCountries = countries.filter((country) => {
     if (continentFilter === "") {
@@ -33,8 +40,24 @@ const FilterCountries = (props) => {
       break;
   }
 
-//console.log(filteredCountries);
+  if (activityFilter) {
+    filteredCountries = filteredCountries.filter(
+      (country) =>
+        country.activities &&
+        country.activities.find((a) => a.name === activityFilter)
+    );
+  }
+
+  // console.log(filteredCountries);
   return filteredCountries;
 };
 
-export default FilterCountries;
+export const countriesByPage = (props) => {
+  const { countriesFiltered, currentPage } = props;
+  // Calcula el índice de inicio y final de los países de la página actual
+  const start = (currentPage - 1) * 10;
+  const end = start + 10;
+
+  const currentCountries = countriesFiltered.slice(start, end);
+  return currentCountries;
+};

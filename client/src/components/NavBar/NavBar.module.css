@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.322);
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.countries {
+  margin-left: 4rem;
+    margin-right: 50rem;
+  color: #85c025;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.home {
+  margin-right: 1rem;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.activity {
+  margin-right: 1rem;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.home:hover {
+  color: #85c025;
+}
+
+.activity:hover {
+  color: #85c025;
+}

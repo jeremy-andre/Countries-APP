@@ -1,0 +1,26 @@
+.pagination {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #818890;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+  margin: 0.15rem;
+}
+
+.pagination:hover {
+  color: #fff;
+  background-color: #85c025;
+}
+
+.active {
+  color: #fff;
+  background-color: #85c025;
+}
+/* 
+.pagination.selected :nth-child(2) {
+  color: #fff;
+  background-color: #85c025;
+} */

@@ -1,0 +1,106 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px auto;
+  width: 80%;
+  max-width: 100%;
+}
+
+.img {
+  width: 650px;
+  height: 430px;
+  border-radius: 10px;
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
+  margin-right: 20px;
+  margin: auto;
+}
+
+.box {
+  border: 1px solid rgb(205, 205, 205);
+  padding: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 50px auto;
+  margin-left: 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #d0d9c2;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 4rem;
+  margin-left: 1rem;
+}
+
+.itemInfo {
+  margin-right: 1rem;
+  margin-left: 4rem;
+}
+
+.labelActivities {
+  border: 1px solid rgb(205, 205, 205);
+  padding: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #85c025;
+}
+
+.activities {
+  display: flex;
+  flex-direction: row;
+}
+
+.activity {
+  margin: 20px;
+  border: 1px solid rgb(205, 205, 205);
+  padding: 18px;
+  box-shadow: 0 10px 8px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 15rem;
+}
+
+.infoAct {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.nameAct {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #85c025;
+}
+
+.nothing {
+  margin: 20px;
+  border: 1px solid rgb(205, 205, 205);
+  padding: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ee7070;
+  display: inline-block;
+}

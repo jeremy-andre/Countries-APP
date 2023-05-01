@@ -11,13 +11,14 @@ const getCountriesHandler = async (req, res) => {
     const results = name
       ? await searchCountryByName(name)
       : await allCountries();
+      
     res.status(200).json(results);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-const getCountrieHandler = async (req, res) => {
+const getCountryHandler = async (req, res) => {
   try {
     const { idPais } = req.params;
     const getCountry = await getCountryById(idPais);
@@ -31,5 +32,5 @@ const getCountrieHandler = async (req, res) => {
 
 module.exports = {
   getCountriesHandler,
-  getCountrieHandler,
+  getCountryHandler,
 };
